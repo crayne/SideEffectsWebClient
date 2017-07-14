@@ -9,6 +9,8 @@ var Const = {
 	medSideEffectsUrl: "/medSideEffectsA.php",
 	medicationComponentsUrl: "/getCombinations.php",
 	medSideEffectsUrlFluentTest: "/medSideEffectsFluentTest.php",
+  getInteractionsUrl: "/interactions.php",
+
 
 	autocomplete: "/autoComplete.php",
 	autocompletecombo: "/autoCompleteCombo.php",
