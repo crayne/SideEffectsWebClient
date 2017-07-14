@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SideEffects</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="assets/css/oryx.css" rel="stylesheet"></link>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="assets/js/typeahead.bundle.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/typeahead.bundle.js"></script>
+  <script type="text/javascript">
+ function  matcher (item, query) {
+        if (item.toLowerCase().indexOf(query.trim().toLowerCase()) != -1) {
+            return true;
+        }
+    }
+
+$(document).ready(function() {
+    console.log("Ready!"); 
+
+
+    $('#search').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    },
+    {
+        name: 'states',
+        displayKey: 'value',
+        source: function (query, process) {
+        states = [];
+        map = {};
+
+        var data = [
+            {"stateCode": "CA", "stateName": "California"},
+            {"stateCode": "AZ", "stateName": "Arizona"},
+            {"stateCode": "NY", "stateName": "New York"},
+            {"stateCode": "NV", "stateName": "Nevada"},
+            {"stateCode": "OH", "stateName": "Ohio"}
+        ];
+
+        $.each(data, function (i, state) {
+            map[state.stateName] = state;
+    		if(matcher(state.stateName, query)) {
+        		states.push({value: state.stateName});
+    		}
+        });
+
+        process(states);
+    },
+
+    });
+});
+ 
+</script>
+</head>
+<body>
+
+<div class="container" >
+  <h1>SideEffects</h1>
+  <p>This is some text.</p> 
+  <div class="row" >
+    <div class="col-xs-3">
+    	<h3>Medications</h3>
+      		<input id="search" type="text" placeholder="States of USA">
+    </div>
+    <div class="col-xs-3-alt col-xs-3">
+    	<h3>Side Effects</h3>
+    </div>
+     <div class="col-xs-3">
+    	<h3>Reverse Side Effects</h3>
+    </div>   
+    <div class="col-xs-3-alt col-xs-3">
+    	<h3>Interactions</h3>
+    </div>    
+ 
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="assets/css/oryx.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/typeahead.bundle.js"></script>
+  <script src="assets/js/interactions.js"></script>
+  <script src="assets/js/initAllDrugsAutocomplete.js"></script>
+  <script src="assets/js/symptomSearch.js"></script>
+  <script src="assets/js/const.js"></script>
+  <script src="assets/js/ajax.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var interactionsInstance;
+      console.log("Ready!");
+      new Interactions();
+      initAllDrugsAutocomplete();
+    });
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h1>SideEffects</h1>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:#f1d1cc;">
+      <h3>Medications</h3>
+      <input id="search" type="text" placeholder="Enter a medication">
+      <div style="margin-top: 5px; ">
+        <ul class="medication-dropdown">
+        </ul>
+      </div>
+      <div style="margin-top: 5px; ">
+        <ul class="medication-list">
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-3" style="background-color:#c3d7e0;">
+      <h3>Side Effects</h3>
+      <h4 id="side-effects-for-medication"></h4>
+      <ul class="medication-side-effects-list">
+      </ul>
+    </div>
+    <div class="col-sm-3" style="background-color:#f1d1cc;">
+      <h3>Symptom Search</h3>
+      <input id="symptom-search" type="text" placeholder="Enter a symptom">
+      <div style="margin-top: 5px; ">
+        <ul class="symptom-dropdown">
+        </ul>
+      </div>
+      <div style="margin-top: 5px; ">
+        <ul class="symptom-search-results-list">
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-3" style="background-color:#c3d7e0;">
+      <h3>Interactions
+        <button id="interactions-button" type="button" class="btn btn-info btn-lg"
+          style="color:black; margin-top:5px" >
+          Get Medication Interactions</button>
+      </h3>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
