@@ -75,6 +75,7 @@ var SymptomSearch = function(){
            return;
          }
          addAListItem(result, "symptom-search-results-list", "symptom-search-results-list-item");
+         $('.symptom-search-results-list').css('visibility','visible');
          $('#symptom-search').css('visibility','visible');
          $('#symptom-search').click(new SymptomSearch());
        },
