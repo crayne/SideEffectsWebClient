@@ -35,24 +35,93 @@ var Interactions = function(){
     showProgressIndicator();
     $.ajax({url: urlx, success: function(result){  //make medArray from string
       hideProgressIndicator();
-      alert("result is " + result);
-      /*
-      if (result.indexOf("no side effects found") != -1 || result.indexOf("not found") != -1 || result.indexOf("no match") != -1) {
-        alert("No side effects found for " + medName);
-        hideProgressIndicator();
-        return;
+      //alert("result is " + result);
+      if(result == null) {
+           alert("SideEffects has not found any interactions among your medications");
+               return;
+           }
+      json = JSON.parse(result);
+
+     //Compensate for error in php json_encode or JSON.parse here, that makes severity an object instead of a string
+      for (i=0; i<json.length; i++) {
+        json[i].severity = json[i].severity[0];
       }
-      addAListItem(result, "symptom-search-results-list", "symptom-search-results-list-item");
-      $('.symptom-search-results-list').css('visibility','visible');
-      $('#symptom-search').css('visibility','visible');
-      $('#symptom-search').click(new SymptomSearch());
-      */
+      displayInteractions(json);
+
     },
     failure: function(result){
       hideProgressIndicator();
-      alert("failed to get symptoms for medications");
+      alert("failed to get interactions");
     }});
     }
 
+    var displayInteractionsOld = function(interactionArray){
+      var iLength = interactionArray.length;
+     	var allText = "";
+     	var criticalText = "";
+     	var significantText = "";
+     	for (var i=0; i<iLength; i++) {
+        if (interactionArray[i].originalDrugName1 == null) continue;
+        if (interactionArray[i].originalDrugName2 == null) continue;
+     		var drug1 = interactionArray[i].originalDrugName1.toLowerCase();
+     		var drug2 = interactionArray[i].originalDrugName2.toLowerCase();
+     		var severity = interactionArray[i].severity.toUpperCase();
+
+     		var text = drug1 + " and " + drug2 + "\n";
+     		if (severity == "CRITICAL") criticalText += text;
+     		else significantText += text;
+     	}
+     	if (criticalText != ""){
+     		if (criticalText.substr(criticalText.length-1, 1) == "\n"){
+     			criticalText = criticalText.substr(0, criticalText.length-1);
+     		}
+     		//criticalList.value = criticalText;
+     		//criticalLabel.visible = true;
+     		//criticalList.visible = true;
+     	}
+
+     	if (significantText != ""){
+     		if (significantText.substr(significantText.length-1, 1) == "\n"){
+     			significantText = significantText.substr(0, significantText.length-1);
+     		}
+     		//significantList.value = significantText;
+     		//significantLabel.visible = true;
+     		//significantList.visible = true;
+      	}
+      	if (criticalText != ""){
+      		//interactionWin.add(criticalLabel);
+        	//interactionWin.add(criticalList);
+          alert("criticalText = " + criticalText);
+        }
+        if (significantText != ""){
+     		  //interactionWin.add(significantLabel);
+        	//interactionWin.add(significantList);
+          alert("significantText = " + significantText);
+
+        }
+
+    }
+
+    var displayInteractions= function(jsonArray){
+      var iLength = jsonArray.length;
+      for (i=0; i<iLength; i++) {
+          var jItem = jsonArray[i];
+          var severityObject1 = jItem.severity;
+          severity1 = severityObject1[0];
+
+          var listItem = "\nInteraction between ";
+          //if (severity2.equals("N/A")) continue;
+          var drugName1 = jItem.originalDrugName1;
+          if (drugName1 == null) drugName1 = jItem.drug1;
+          var drugName2 = jItem.originalDrugName2;
+          if (drugName2 == null) drugName2 = jItem.drug2;
+
+          listItem += drugName1 + " and " + drugName2 + ": ";
+          var descriptionObject = jItem.descriptionText;
+          var description =  descriptionObject[0];
+          listItem += description + "\n";
+          alert("Interaction listItem = " + listItem);
+      }
+    }
 
   }
