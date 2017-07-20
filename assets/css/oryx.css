@@ -78,6 +78,12 @@ body {
 	color: black;
 }
 
+#interactions-loader {
+	font-size: 48px;
+	margin-bottom: 2px;
+	visibility: collapse;
+}
+
 
 .hero-unit {
 	background-image: url("../img/beige_paper.png");

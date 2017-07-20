@@ -109,12 +109,9 @@ getSideEffectsForMedication = function(medicationName){
   $("#side-effects-for-medication").text("for " + medicationName);
   var urlx = Const.localHost + Const.medSideEffectsUrl;
   urlx += "?medication=" + medicationName;
-  showProgressIndicator();
   $.ajax({url: urlx, success: function(result){  //make medArray from string
-    //alert("result is " + result);
     if (result.indexOf("no side effects found") != -1 || result.indexOf("not found") != -1 || result.indexOf("no match") != -1) {
       alert("No side effects found for " + medName);
-      hideProgressIndicator();
       return;
     }
     createSideEffectRows(result);  //add items here
@@ -122,7 +119,6 @@ getSideEffectsForMedication = function(medicationName){
     $('#symptom-search').click(new SymptomSearch());
   },
   failure: function(result){
-    hideProgressIndicator();
     alert("failed to get symptoms for medications");
   }});
 }

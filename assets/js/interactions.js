@@ -32,9 +32,9 @@ var Interactions = function(){
   var getMedicationInteractions = function(medicationString){
     var urlBase = Const.localHost + Const.getInteractionsUrl;
     urlx = urlBase + "?medNames=" + medicationString;
-    showProgressIndicator();
+    $("#interactions-loader").css("visibility", "visible");
     $.ajax({url: urlx, success: function(result){  //make medArray from string
-      hideProgressIndicator();
+      $("#interactions-loader").css("visibility", "collapse");
       //alert("result is " + result);
       if(result == null) {
            alert("SideEffects has not found any interactions among your medications");
@@ -50,7 +50,7 @@ var Interactions = function(){
 
     },
     failure: function(result){
-      hideProgressIndicator();
+      $("#interactions-loader").css("visibility", "collapse");
       alert("failed to get interactions");
     }});
     }
