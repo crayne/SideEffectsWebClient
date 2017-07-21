@@ -103,6 +103,8 @@ var Interactions = function(){
     }
 
     var displayInteractions= function(jsonArray){
+      var myTextArea = $('.interactions-textarea');
+      myTextArea.val('');
       var iLength = jsonArray.length;
       for (i=0; i<iLength; i++) {
           var jItem = jsonArray[i];
@@ -120,7 +122,8 @@ var Interactions = function(){
           var descriptionObject = jItem.descriptionText;
           var description =  descriptionObject[0];
           listItem += description + "\n";
-          alert("Interaction listItem = " + listItem);
+          //alert("Interaction listItem = " + listItem);
+          myTextArea.val(myTextArea.val() + listItem);
       }
     }
 

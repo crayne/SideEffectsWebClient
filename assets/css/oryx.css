@@ -84,6 +84,21 @@ body {
 	visibility: collapse;
 }
 
+.interactions-div {
+	height: 500px;
+}
+
+.interactions-textarea {
+	border: solid, 1px;
+	height: 300px;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+
+}
+
 
 .hero-unit {
 	background-image: url("../img/beige_paper.png");
