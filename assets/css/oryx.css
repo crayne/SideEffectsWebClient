@@ -44,7 +44,7 @@ body {
 }
 
 .medication-list-item {
-	/* color: black; */
+	height: 30px;
 }
 
 .active a{
