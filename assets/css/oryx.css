@@ -28,7 +28,7 @@ body {
     overflow-y:auto;
     list-style: none;
 		border:1px solid black;
-		background-color: white;
+		/* background-color: white; */
 		visibility: hidden;
 }
 
@@ -44,8 +44,15 @@ body {
 }
 
 .medication-list-item {
-	color: black;
+	/* color: black; */
 }
+
+.active a{
+    color: black !important;
+}
+
+
+
 .medication-side-effects-list-item{
 	color: black;
 }

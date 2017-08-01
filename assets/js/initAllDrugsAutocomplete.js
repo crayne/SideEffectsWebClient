@@ -93,13 +93,15 @@ medicationClicked = function(medication, index) {
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
 	var id = "medication-list" + i;
-	$("ul.medication-list").append('<li id=' + id + '><a href="#"><span class="tab medication-list-item">' + medication + '</span></a></li>');
+	$("ul.medication-list").append('<li id=' + id + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
   $("ul.medication-list").css("visibility", "visible");
   //Change list item color to yellow when it is clicked
-  $('#' + id).click(function(){
-       //$('.medication-list-item').css('color','black');
-       //$(this).css('color', '#6996ab');
-       getSideEffectsForMedication(medication);
+  $('#' + id).click(function(e){
+    e.preventDefault()
+    $that = $(this);
+    $that.parent().find('li').removeClass('active');
+    $that.addClass('active');
+    getSideEffectsForMedication(medication);
        //alert("text is: " + $(this).text());
    });
   getSideEffectsForMedication(medication);
