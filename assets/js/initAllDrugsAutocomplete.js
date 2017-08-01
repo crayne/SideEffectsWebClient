@@ -86,7 +86,6 @@ createSearchRows = function(result){
 }
 
 /*
-TODO: Make new medication list item scroll to top
 TODO: Make new medication list item active
 */
 
@@ -99,6 +98,12 @@ medicationClicked = function(medication, index) {
 	$("ul.medication-list").append('<li id=' + id + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
   //scroll added item into view
   $("#" + id).get(0).scrollIntoView();
+  //set all items to inactive
+  $("ul.medication-list").find('li').removeClass('active');
+  //set added item to active
+  $("#" + id).addClass('active');
+
+
   $("ul.medication-list").css("visibility", "visible");
   //Change list item color to yellow when it is clicked
   $('#' + id).click(function(e){
@@ -109,6 +114,7 @@ medicationClicked = function(medication, index) {
     getSideEffectsForMedication(medication);
        //alert("text is: " + $(this).text());
    });
+
   getSideEffectsForMedication(medication);
 }
 
