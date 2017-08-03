@@ -1,6 +1,7 @@
 
 var verbalFrequencies = ['rare', 'infrequent', 'frequent'];
 var FLOAT_UNDEFINED = -1.0;
+var numMedications = 0;
 
 SideEffectsClass = function(init) {
   this.verbalFrequency = init.verbalFrequency;
@@ -85,9 +86,25 @@ createSearchRows = function(result){
 
 }
 
-/*
-TODO: Make new medication list item active
-*/
+saveMedication = function(medication){
+  //numMedications += 1;
+  //localStorage.setItem('medication'+numMedications, medication);
+  //Get all medications from list
+  var ar = [];
+  var ul = document.getElementById("medication-list");
+  if (ul != null) {
+    ar = ul.getElementsByTagName("li");
+  }
+  //ar is now an arry of all the medication names
+  for(i = 0; i < ar.length; i++){
+      alert($(ar[i]).text());    //ar[i].anything results in co
+
+   }
+   //need to save the array in local storage
+   localStorage.setItem("medications", null);
+   localStorage.setItem("medications", JSON.stringify(ar));
+
+ }
 
 medicationClicked = function(medication, index) {
 	//Empty dropdown
@@ -102,6 +119,7 @@ medicationClicked = function(medication, index) {
   $("ul.medication-list").find('li').removeClass('active');
   //set added item to active
   $("#" + id).addClass('active');
+  saveMedication(medication);
 
 
   $("ul.medication-list").css("visibility", "visible");
