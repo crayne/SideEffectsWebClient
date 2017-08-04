@@ -86,41 +86,21 @@ createSearchRows = function(result){
 
 }
 
-saveMedication = function(medication){
-  //numMedications += 1;
-  //localStorage.setItem('medication'+numMedications, medication);
-  //Get all medications from list
-  var ar = [];
-  var ul = document.getElementById("medication-list");
-  if (ul != null) {
-    ar = ul.getElementsByTagName("li");
-  }
-  //ar is now an arry of all the medication names
-  for(i = 0; i < ar.length; i++){
-      alert($(ar[i]).text());    //ar[i].anything results in co
-
-   }
-   //need to save the array in local storage
-   localStorage.setItem("medications", null);
-   localStorage.setItem("medications", JSON.stringify(ar));
-
- }
-
 medicationClicked = function(medication, index) {
 	//Empty dropdown
 	$("ul.medication-dropdown").empty();
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
 	var id = "medication-list" + i;
-	$("ul.medication-list").append('<li id=' + id + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
+	$("ul.medication-list").append('<li id=' + id + ' draggable="true"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
   //scroll added item into view
   $("#" + id).get(0).scrollIntoView();
   //set all items to inactive
   $("ul.medication-list").find('li').removeClass('active');
   //set added item to active
   $("#" + id).addClass('active');
-  saveMedication(medication);
-
+  var ml = new MedicationList();
+  ml.saveMedication(medication);
 
   $("ul.medication-list").css("visibility", "visible");
   //Change list item color to yellow when it is clicked
