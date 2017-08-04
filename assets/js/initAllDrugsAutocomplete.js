@@ -87,19 +87,19 @@ createSearchRows = function(result){
 }
 
 medicationClicked = function(medication, index) {
+  var ml = new MedicationList();
 	//Empty dropdown
 	$("ul.medication-dropdown").empty();
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
 	var id = "medication-list" + i;
-	$("ul.medication-list").append('<li id=' + id + ' draggable="true"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
+	$("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="ml.dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
   //scroll added item into view
   $("#" + id).get(0).scrollIntoView();
   //set all items to inactive
   $("ul.medication-list").find('li').removeClass('active');
   //set added item to active
   $("#" + id).addClass('active');
-  var ml = new MedicationList();
   ml.saveMedication(medication);
 
   $("ul.medication-list").css("visibility", "visible");
