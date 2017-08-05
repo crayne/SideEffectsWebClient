@@ -93,7 +93,7 @@ medicationClicked = function(medication, index) {
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
 	var id = "medication-list" + i;
-	$("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="ml.dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
+	$("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="(new MedicationList()).dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
   //scroll added item into view
   $("#" + id).get(0).scrollIntoView();
   //set all items to inactive
