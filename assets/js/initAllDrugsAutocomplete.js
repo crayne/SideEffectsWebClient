@@ -31,10 +31,14 @@ copySideEffectsObject = function(from, to) {
 
 
 initAllDrugsAutocomplete = function(){
-//changeListener
-$( "#search" ).keyup(function() {
-  processReturnString( $(this).val() );
-});}
+  var ml = new MedicationList();
+  ml.restoreMedicationList();
+  //changeListener
+  $( "#search" ).keyup(function() {
+    processReturnString( $(this).val() );
+  });
+
+}
 
 
 

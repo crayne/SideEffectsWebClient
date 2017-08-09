@@ -1,0 +1,5 @@
+1. app opens with just Medications and SideEffects columns centered
+2. menu (what kind?) has other options:  Symptom Search and Interactions and Side Effects
+3. if click on Symptom Search, Side Effects column is replaced by Symptom Search column.
+4. if click on Interactions, second column is replaced by Interactions
+5. if click on Side Effects, second column is replaced by Side Effects
