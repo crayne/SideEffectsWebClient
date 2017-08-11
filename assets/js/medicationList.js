@@ -18,7 +18,7 @@ function MedicationList(){
      var i;
      for (i=0; i<ar.length; i++){
        var id = "medication" + i;
-       $("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="this.dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + ar[i] + '</span></a></li>');
+       $("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="(new MedicationList()).dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + ar[i] + '</span></a></li>');
      }
      $("ul.medication-list").css("visibility", "visible");
      $("#medication0" ).get(0).scrollIntoView();

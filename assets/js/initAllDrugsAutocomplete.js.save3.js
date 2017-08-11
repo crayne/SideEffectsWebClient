@@ -21,7 +21,7 @@ addAListItem = function(textToAdd, classOfList){
 
 getAllDrugNamesThatStartWithString = function(search_term){
     if (search_term.length <= 2) return;
-    search_term = search_term.toLowerCase(); 
+    search_term = search_term.toLowerCase();
     var urlx = Const.localHost + Const.autocompletecombo;
     urlx += "?searchValue=" + search_term;
     $.ajax({url: urlx, success: function(result){
