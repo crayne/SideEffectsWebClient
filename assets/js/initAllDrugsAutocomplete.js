@@ -126,7 +126,7 @@ getSideEffectsForMedication = function(medicationName){
   urlx += "?medication=" + medicationName;
   $.ajax({url: urlx, success: function(result){  //make medArray from string
     if (result.indexOf("no side effects found") != -1 || result.indexOf("not found") != -1 || result.indexOf("no match") != -1) {
-      alert("No side effects found for " + medName);
+      alert("No side effects found for " + medicationName);
       return;
     }
     createSideEffectRows(result);  //add items here
