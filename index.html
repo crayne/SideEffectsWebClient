@@ -48,7 +48,7 @@
 <div class="container">
   <h1>SideEffects</h1>
   <div class="row">
-    <div class="col-sm-3 column-style" style="background-color:#f1d1cc;">
+    <div class="col-sm-3 column-style" style="background-color:#f1d1cc;display:block">
       <h3>Medications</h3>
       <input id="search" type="text" placeholder="Enter a medication">
       <div style="margin-top: 5px ">
@@ -69,25 +69,29 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-3 column-style" style="background-color:#c3d7e0;">
-      <h3>Side Effects</h3>
-      <h4 id="side-effects-for-medication"></h4>
-      <ul class="medication-side-effects-list">
-      </ul>
-    </div>
-    <div class="col-sm-3 column-style" style="background-color:#f1d1cc;">
-      <h3>Symptom Search</h3>
-      <input id="symptom-search" type="text" placeholder="Enter a symptom">
-      <div style="margin-top: 5px; ">
-        <ul class="symptom-dropdown">
+    <div class=" column-style" >
+      <div class="column-style col-sm-3" id="side-effects-column" style="background-color:#c3d7e0;display:block">
+        <h3>Side Effects</h3>
+        <h4 id="side-effects-for-medication"></h4>
+        <ul class="medication-side-effects-list">
         </ul>
       </div>
-      <div style="margin-top: 5px; ">
-        <ul class="symptom-search-results-list">
-        </ul>
+      <div class="column-style col-sm-3" id="symptom-search-column" style="background-color:#c3d7e0;display:none">
+        <h3>Symptom Search</h3>
+        <input id="symptom-search" type="text" placeholder="Enter a symptom">
+        <div style="margin-top: 5px; ">
+          <ul class="symptom-dropdown">
+          </ul>
+        </div>
+        <div style="margin-top: 5px; ">
+          <ul class="symptom-search-results-list">
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="col-sm-3 column-style" style="background-color:#c3d7e0;">
+
+    </div>
+    <div class="col-sm-3 column-style" is="interactions-column" style="background-color:#c3d7e0;display:none">
       <h3>Interactions
         <button id="interactions-button" type="button" class="btn btn-info btn-primary"
           style="color:black; margin-top:5px; white-space: normal;" >
