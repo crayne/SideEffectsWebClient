@@ -23,7 +23,7 @@ body {
 }
 
 .medication-list {
-    max-height: 100px;
+    max-height: 250px;
     overflow-y:scroll;
     overflow-y:auto;
     list-style: none;
@@ -33,7 +33,7 @@ body {
 }
 
 .medication-side-effects-list {
-	max-height: 100px;
+	max-height: 290px;
 	overflow-y:scroll;
 	overflow-y:auto;
 	list-style: none;
@@ -95,9 +95,13 @@ body {
 	height: 500px;
 }
 
+.column-style {
+	height: 400px;
+}
+
 .interactions-textarea {
 	border: solid, 1px;
-	height: 300px;
+	height: 200px;
 	width: 100%;
 	padding-top: 5px;
 	padding-bottom: 5px;
