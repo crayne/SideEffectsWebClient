@@ -15,6 +15,7 @@
   <script src="assets/js/medicationList.js"></script>
   <script src="assets/js/initAllDrugsAutocomplete.js"></script>
   <script src="assets/js/symptomSearch.js"></script>
+  <script src="assets/js/newLayout.js"></script>
   <script src="assets/js/const.js"></script>
   <script src="assets/js/ajax.js"></script>
   <script type="text/javascript">
@@ -24,6 +25,7 @@
       new Interactions();
       initAllDrugsAutocomplete();
       window.scrollTo(0,0);
+      ( new NewLayout()).addClickHandlersToNavbarItems();
     });
   </script>
 </head>
@@ -36,9 +38,9 @@
       <a class="navbar-brand" href="#">SideEffects</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Side Effects</a></li>
-      <li><a href="#">Symptoms</a></li>
-      <li><a href="#">Interactions</a></li>
+      <li id="side-effects-nav" class="active"><a href="#">Side Effects</a></li>
+      <li id="symptoms-nav"><a href="#">Symptoms</a></li>
+      <li id="interactions-nav"><a href="#">Interactions</a></li>
     </ul>
   </div>
 </nav>
