@@ -76,6 +76,7 @@
         <ul class="medication-side-effects-list">
         </ul>
       </div>
+      <!-- Symptom Search starts here -->
       <div class="column-style col-sm-3" id="symptom-search-column" style="background-color:#c3d7e0;display:none">
         <h3>Symptom Search</h3>
         <input id="symptom-search" type="text" placeholder="Enter a symptom">
@@ -88,9 +89,23 @@
           </ul>
         </div>
       </div>
+      <!-- Interactions starts here -->
+    <div class="col-sm-3 column-style" id="interactions-column" style="background-color:#c3d7e0;display:none">
+      <h3>Interactions
+        <button id="interactions-button" type="button" class="btn btn-info btn-primary"
+          style="color:black; margin-top:5px; white-space: normal;" >
+          Get Medication Interactions</button>
+      </h3>
+      <div id="interactions-loader" class="fa fa-spinner fa-spin" ></div>
+      <div class="interactions-div">
+        <textarea class="interactions-textarea"></textarea>
+      </div>
     </div>
+  </div>
+
 
     </div>
+    <!---
     <div class="col-sm-3 column-style" is="interactions-column" style="background-color:#c3d7e0;display:none">
       <h3>Interactions
         <button id="interactions-button" type="button" class="btn btn-info btn-primary"
@@ -102,6 +117,8 @@
         <textarea class="interactions-textarea"></textarea>
       </div>
     </div>
+  -->
+
   </div>
 </div>
 
