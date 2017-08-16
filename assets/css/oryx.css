@@ -25,6 +25,24 @@ h4 {
 }
 
 
+.navbar-brand {
+	font-size: 2.5em;
+}
+
+
+.navbar-nav {
+	font-size: 1.5em;
+}
+
+.btn-lg {
+	font-size: .5em !important;
+	font-weight: 450;
+}
+
+
+
+
+
 
 body {
 	/* background-image: url("../img/beige_paper_light.png"); */
