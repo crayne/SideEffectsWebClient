@@ -1,3 +1,31 @@
+@media (min-width: 480px) {
+    body{font-size: 14px;}
+}
+
+@media (min-width: 1024px) {
+    body{font-size: 20px;}
+}
+
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0px 15px; /* adjust here */
+    margin-bottom: -1px;
+    border: 1px solid #ddd;
+    line-height: 1em /* set to text height */
+}
+
+h3 {
+	font-size: 1.8em !important;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+
+
 body {
 	/* background-image: url("../img/beige_paper_light.png"); */
 	background-color: #f4ede1;
