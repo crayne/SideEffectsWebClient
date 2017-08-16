@@ -81,6 +81,7 @@ createSearchRows = function(result){
     //add new rows
     for (i=0; i<medArray.length; i++){
     	var id = "medication-dropdown" + i;
+      medArray[i] = medArray[i].toLowerCase();
     	$("ul.medication-dropdown").append('<li id=' + id + '><a href="#"><span class="tab medication-dropdown-item">' + medArray[i] + '</span></a></li>');
 		$('#' + id).click(function(){
 			medicationClicked($(this).text(), i);

@@ -33,6 +33,7 @@ var SymptomSearch = function(){
       //add new rows
       for (i=0; i<symptomArray.length; i++){
       	var id = "symptom-dropdown" + i;
+        symptomArray[i] = symptomArray[i].toLowerCase();
       	$("ul.symptom-dropdown").append('<li id=' + id + '><a href="#"><span class="tab">' + symptomArray[i] + '</span></a></li>');
   		$('#' + id).click(function(){
   			   symptomClicked($(this).text());
@@ -69,11 +70,13 @@ var SymptomSearch = function(){
        showProgressIndicator();
        $.ajax({url: urlx, success: function(result){  //make medArray from string
          //alert("result is " + result);
+         /*
          if (result.indexOf("no side effects found") != -1 || result.indexOf("not found") != -1 || result.indexOf("no match") != -1) {
            alert("No side effects found for " + medName);
            hideProgressIndicator();
            return;
          }
+         */
          addAListItem(result, "symptom-search-results-list", "symptom-search-results-list-item");
          $('.symptom-search-results-list').css('visibility','visible');
          $('#symptom-search').css('visibility','visible');
