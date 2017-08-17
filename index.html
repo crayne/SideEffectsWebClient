@@ -29,7 +29,7 @@
     });
   </script>
 </head>
-<body>
+<body class="body-color">
 
 
 <nav class="navbar navbar-default">
@@ -50,7 +50,7 @@
   <div class="row">
     <!-- dummy column -->
     <div class="col-sm-3"></div>
-    <div class="col-sm-3 column-style" style="background-color:#f1d1cc;display:block">
+    <div class="col-sm-3 column-style left-panel-color" style="display:block">
       <h3>Medications</h3>
       <input id="search" type="text" placeholder="Enter a medication">
       <div style="margin-top: 5px ">
@@ -72,18 +72,18 @@
       </div>
     </div>
     <!-- spacer for the two columns -->
-    <div class="col-sm-3"  style="background-color:#f4ede1;width:10px;">
+    <div class="col-sm-3 body-color"  style="width:10px;">
     </div>
 
     <div class=" column-style" >
-      <div class="column-style col-sm-3" id="side-effects-column" style="background-color:#c3d7e0;display:block">
+      <div class="column-style col-sm-3 right-panel-color" id="side-effects-column" style="display:block">
         <h3>Side Effects</h3>
         <h4 id="side-effects-for-medication"></h4>
         <ul class="medication-side-effects-list">
         </ul>
       </div>
       <!-- Symptom Search starts here -->
-      <div class="column-style col-sm-3" id="symptom-search-column" style="background-color:#c3d7e0;display:none">
+      <div class="column-style col-sm-3 right-panel-color" id="symptom-search-column" style="display:none">
         <h3>Symptom Search</h3>
         <input id="symptom-search" type="text" placeholder="Enter a symptom">
         <div style="margin-top: 5px; ">
@@ -96,7 +96,7 @@
         </div>
       </div>
       <!-- Interactions starts here -->
-    <div class="col-sm-3 column-style" id="interactions-column" style="background-color:#c3d7e0;display:none">
+    <div class="col-sm-3 column-style right-panel-color" id="interactions-column" style="display:none">
       <h3>Interactions
         <button id="interactions-button" type="button" class="btn btn-info btn-primary btn-lg"
           style="color:black; margin-top:5px; white-space: normal;" >

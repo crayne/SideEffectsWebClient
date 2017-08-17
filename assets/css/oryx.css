@@ -42,11 +42,19 @@ h4 {
 
 
 
+/*  Colors */
 
 
-body {
-	/* background-image: url("../img/beige_paper_light.png"); */
+.body-color {
 	background-color: #f4ede1;
+}
+
+.left-panel-color {
+	background-color: #f1d1cc;
+}
+
+.right-panel-color {
+	background-color: #c3d7e0;
 }
 
 
