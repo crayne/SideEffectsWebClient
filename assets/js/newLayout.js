@@ -7,7 +7,9 @@ function NewLayout(){
       $("#symptom-search-column").css("display", "none");
       $("#side-effects-column").css("display", "block");
       $("#interactions-column").css("display", "none");
-      $("#side-effects-column")[0].scrollIntoView(true);
+      if (breakpoint.value != 'desktop') {
+        $("#medication-column").css("display", "none");
+      }
 
     });
     var globalThis = this;
@@ -17,8 +19,9 @@ function NewLayout(){
       $("#interactions-column").css("display", "none");
       $("#side-effects-column").css("display", "none");
       $("#symptom-search-column").css("display", "block");
-      $("#symptom-search").css("visibility", "visible");
-      $("#symptom-search-column")[0].scrollIntoView(true);
+      if (breakpoint.value != 'desktop') {
+        $("#medication-column").css("display", "none");
+      }
     });
 
     $('#interactions-nav').click(function(e){
@@ -27,8 +30,9 @@ function NewLayout(){
       $("#symptom-search-column").css("display", "none");
       $("#side-effects-column").css("display", "none");
       $("#interactions-column").css("display", "block");
-      $("#interactions-column")[0].scrollIntoView(true);
-
+      if (breakpoint.value != 'desktop') {
+        $("#medication-column").css("display", "none");
+      }
     });
   }
 

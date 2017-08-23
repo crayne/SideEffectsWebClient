@@ -19,6 +19,7 @@
   <script src="assets/js/const.js"></script>
   <script src="assets/js/ajax.js"></script>
   <script type="text/javascript">
+    var breakpoint = {};
     $(document).ready(function() {
       var interactionsInstance;
       console.log("Ready!");
@@ -26,13 +27,31 @@
       initAllDrugsAutocomplete();
       window.scrollTo(0,0);
       ( new NewLayout()).addClickHandlersToNavbarItems();
+      breakpoint.refreshValue = function () {
+        this.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
+      };
+      $(window).resize(function () {
+        breakpoint.refreshValue();
+        if (breakpoint.value == 'tablet') {
+          console.log('Tablet breakpoint');
+        }
+        else if (breakpoint.value == 'desktop') {
+          console.log("Desktop breakpoint');")
+          $("#medication-column").css("display", "block");
+        }
+        else {
+          console.log('Some other breakpoint');
+        }
+        }).resize();
     });
   </script>
 </head>
-<body class="body-color">
+<!-- TODO: try increasing padding for case where navbar is scrunched vertical -->
+<body class="body-color" style="padding-top: 150px;"
+/>
 
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Side Effects Logo</a>
@@ -45,12 +64,14 @@
   </div>
 </nav>
 
-<div class="container">
-  <h1>SideEffects</h1>
+<div class="container" id="mainContainer">
+  <div class="row">
+    <h4 style="text-align: center">SideEffects</h4>
+  </div>
   <div class="row">
     <!-- dummy column -->
     <div class="col-sm-3"></div>
-    <div class="col-sm-3 column-style left-panel-color" style="display:block">
+    <div class="col-sm-3 column-style left-panel-color" id="medication-column" style="display:block">
       <h3>Medications</h3>
       <input id="search" type="text" placeholder="Enter a medication">
       <div style="margin-top: 5px ">

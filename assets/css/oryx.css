@@ -6,6 +6,32 @@
     body{font-size: 20px;}
 }
 
+/**
+ * These values will not show up in content, but can be
+ * queried by JavaScript to know which breakpoint is active.
+ * Add or remove as many breakpoints as you like.
+ */
+body:before {
+  content: "smartphone";
+  display: none; /* Prevent from displaying. */
+}
+
+body{font-size: 14px;}
+
+@media (min-width: 700px) {
+  body:before {
+    content: "tablet";
+  }
+}
+@media (min-width: 1100px) {
+  body:before {
+    content: "desktop";
+  }
+	body{font-size: 20px;}
+
+}
+
+
 
 .list-group-item {
     position: relative;
@@ -48,6 +74,7 @@ h4 {
 .body-color {
 	background-color: #f4ede1;
 }
+
 
 .left-panel-color {
 	background-color: #f1d1cc;
