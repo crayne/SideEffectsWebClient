@@ -20,6 +20,7 @@
   <script src="assets/js/ajax.js"></script>
   <script type="text/javascript">
     var breakpoint = {};
+    var lastRightPanel = "#side-effect-column";
     $(document).ready(function() {
       var interactionsInstance;
       console.log("Ready!");
@@ -38,6 +39,7 @@
         else if (breakpoint.value == 'desktop') {
           console.log("Desktop breakpoint');")
           $("#medication-column").css("display", "block");
+
         }
         else {
           console.log('Some other breakpoint');
@@ -57,6 +59,7 @@
       <a class="navbar-brand" href="#">Side Effects Logo</a>
     </div>
     <ul class="nav navbar-nav">
+      <li id="medications-nav" class="active"><a href="#">Medications</a></li>
       <li id="side-effects-nav" class="active"><a href="#">Side Effects</a></li>
       <li id="symptoms-nav"><a href="#">Symptoms</a></li>
       <li id="interactions-nav"><a href="#">Interactions</a></li>
