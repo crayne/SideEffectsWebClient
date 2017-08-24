@@ -133,6 +133,12 @@ getSideEffectsForMedication = function(medicationName){
     createSideEffectRows(result);  //add items here
     $('#symptom-search').css('visibility','visible');
     $('#symptom-search').click(new SymptomSearch());
+    //Show side effects column-style
+    if (breakpoint.value != 'desktop'){
+      lastRightPanel = "#side-effects-column";
+      $(lastRightPanel).css("display", "block");
+      $("#medication-column").css("display", "none");
+    }
   },
   failure: function(result){
     alert("failed to get symptoms for medications");
