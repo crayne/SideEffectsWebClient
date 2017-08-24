@@ -23,7 +23,7 @@ function NewLayout(){
       $("#side-effects-column").css("display", "none");
       $("#symptom-search-column").css("display", "none");
       $("#medication-column").css("display", "block");
-      if (breakpoint.value == desktop) {
+      if (breakpoint.value == 'desktop') {
         $("#side-effects-column").css("display", "block");
       }
     });
