@@ -39,7 +39,10 @@
         else if (breakpoint.value == 'desktop') {
           console.log("Desktop breakpoint');")
           $("#medication-column").css("display", "block");
-
+          //TODO - if lastRightPanel is hidden, show it
+          if ($(lastRightPanel).css("display") == "none"){
+            $(lastRightPanel).css("display", "block");
+          }
         }
         else {
           console.log('Some other breakpoint');
@@ -59,7 +62,7 @@
       <a class="navbar-brand" href="#">Side Effects Logo</a>
     </div>
     <ul class="nav navbar-nav">
-      <li id="medications-nav" class="active"><a href="#">Medications</a></li>
+      <li id="medications-nav"><a href="#">Medications</a></li>
       <li id="side-effects-nav" class="active"><a href="#">Side Effects</a></li>
       <li id="symptoms-nav"><a href="#">Symptoms</a></li>
       <li id="interactions-nav"><a href="#">Interactions</a></li>
@@ -67,7 +70,7 @@
   </div>
 </nav>
 
-<div class="container" id="mainContainer">
+<div class="container" id="mainContainer" style="margin-top:50px">
   <div class="row">
     <h4 style="text-align: center">SideEffects</h4>
   </div>
