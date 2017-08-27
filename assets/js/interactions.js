@@ -30,7 +30,7 @@ var Interactions = function(){
   }
 
   var getMedicationInteractions = function(medicationString){
-    var urlBase = Const.localHost + Const.getInteractionsUrl;
+    var urlBase = Host + Const.getInteractionsUrl;
     urlx = urlBase + "?medNames=" + medicationString;
     $("#interactions-loader").css("visibility", "visible");
     $.ajax({url: urlx, success: function(result){  //make medArray from string

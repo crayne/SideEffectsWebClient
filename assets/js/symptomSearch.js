@@ -10,7 +10,7 @@ var SymptomSearch = function(){
     getAllSymptomsThatStartWithString = function(search_term){
       if (search_term.length <= 2) return;
       search_term = search_term.toLowerCase();
-      var urlx = Const.localHost + Const.autocompleteSymptoms;
+      var urlx = Host + Const.autocompleteSymptoms;
       urlx += "?searchValue=" + search_term;
       $.ajax({url: urlx, success: function(result){
       //alert("ajax result of symptom search is: " + result);
@@ -64,7 +64,7 @@ var SymptomSearch = function(){
 
      var medications = getMedicationArray();
 
-     var urlBase = Const.localHost + Const.searchSideEffectsVerbalUrl;
+     var urlBase = Host + Const.searchSideEffectsVerbalUrl;
      for (i = 0; i<medications.length; i++){
        urlx = urlBase + "?symptom=" + symptom + "&medication=" + medications[i];
        showProgressIndicator();

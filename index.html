@@ -21,6 +21,7 @@
   <script type="text/javascript">
     var breakpoint = {};
     var lastRightPanel = "#side-effect-column";
+    var Host = Const.localHost;
     $(document).ready(function() {
       var interactionsInstance;
       console.log("Ready!");
@@ -59,9 +60,16 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+
       <a class="navbar-brand" href="#">Side Effects Logo</a>
     </div>
-    <ul class="nav navbar-nav">
+    <ul id="navbar" class="nav navbar-nav collapse navbar-collapse">
       <li id="medications-nav"><a href="#">Medications</a></li>
       <li id="side-effects-nav" class="active"><a href="#">Side Effects</a></li>
       <li id="symptoms-nav"><a href="#">Symptoms</a></li>

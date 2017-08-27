@@ -59,7 +59,7 @@ addAListItem = function(textToAdd, classOfList, classOfItem){
 getAllDrugNamesThatStartWithString = function(search_term){
     if (search_term.length <= 2) return;
     search_term = search_term.toLowerCase();
-    var urlx = Const.localHost + Const.autocomplete;
+    var urlx = Host + Const.autocomplete;
     urlx += "?searchValue=" + search_term;
     $.ajax({url: urlx, success: function(result){
     	//alert("ajax result is: " + result);
@@ -123,7 +123,7 @@ medicationClicked = function(medication, index) {
 
 getSideEffectsForMedication = function(medicationName){
   $("#side-effects-for-medication").text("for " + medicationName);
-  var urlx = Const.localHost + Const.medSideEffectsUrl;
+  var urlx = Host + Const.medSideEffectsUrl;
   urlx += "?medication=" + medicationName;
   $.ajax({url: urlx, success: function(result){  //make medArray from string
     if (result.indexOf("no side effects found") != -1 || result.indexOf("not found") != -1 || result.indexOf("no match") != -1) {

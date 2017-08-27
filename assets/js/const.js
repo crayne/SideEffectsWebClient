@@ -1,7 +1,7 @@
 var Const = {
-    urlHost: null,
-    localHost: "../sideEffectsNewRxnav",
-    serverHost: "http://www.oryxtech.net/sideEffectsNewRxnav",
+  urlHost: null,
+  localHost: "../sideEffectsNewRxnav",
+  serverHost: "http://www.oryxtech.net/sideEffectsNewRxnav",
 	mapSideEffectsUrl: "/mapSideEffect.php",
 	searchSideEffectsUrl: "/searchSideEffect.php",
 	searchSideEffectsVerbalUrl: "/searchSideEffectVerbal.php",
