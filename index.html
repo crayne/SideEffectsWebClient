@@ -29,6 +29,14 @@
       initAllDrugsAutocomplete();
       window.scrollTo(0,0);
       ( new NewLayout()).addClickHandlersToNavbarItems();
+      /*
+      When menu is collapsed an you expand it and click on an item,
+      the menu should collapse again
+      */
+      $("nav").find("li").on("click", "a", function () {
+           $('.navbar-collapse.in').collapse('hide');
+       });
+
       breakpoint.refreshValue = function () {
         this.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
       };
