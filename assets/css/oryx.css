@@ -18,12 +18,12 @@ body:before {
 
 body{font-size: 14px;}
 
-@media (min-width: 700px) {
+@media (min-width: 480px) {
   body:before {
     content: "tablet";
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
   body:before {
     content: "desktop";
   }
