@@ -2,6 +2,7 @@
 var verbalFrequencies = ['rare', 'infrequent', 'frequent'];
 var FLOAT_UNDEFINED = -1.0;
 var numMedications = 0;
+var selectedMedication;
 
 SideEffectsClass = function(init) {
   this.verbalFrequency = init.verbalFrequency;
@@ -84,6 +85,7 @@ createSearchRows = function(result){
       medArray[i] = medArray[i].toLowerCase();
     	$("ul.medication-dropdown").append('<li id=' + id + '><a href="#"><span class="tab medication-dropdown-item">' + medArray[i] + '</span></a></li>');
 		$('#' + id).click(function(){
+      selectedMedication = $(this);
 			medicationClicked($(this).text(), i);
 		  } );
     }
@@ -98,7 +100,10 @@ medicationClicked = function(medication, index) {
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
 	var id = "medication-list" + i;
-	$("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="(new MedicationList()).dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
+  //
+	//$("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="(new MedicationList()).dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
+  //
+  $("ul.medication-list").append('<li id=' + id +  '><a href="#"><span class="tab list-group-item medication-list-item ui-widget-content">' + medication + '</span></a></li>');
   //scroll added item into view
   $("#" + id).get(0).scrollIntoView();
   //set all items to inactive
@@ -114,6 +119,7 @@ medicationClicked = function(medication, index) {
     $that = $(this);
     $that.parent().find('li').removeClass('active');
     $that.addClass('active');
+    selectedMedication = $that;
     getSideEffectsForMedication(medication);
        //alert("text is: " + $(this).text());
    });
@@ -345,3 +351,17 @@ createSideEffectRows = function(jsonResult){
    //alert("In createRows, after hideProgressIndicator");
 
 }
+
+function startedDrag() {
+
+            $('#medication-list').css({
+                overflow: 'visible',
+            });
+        }
+
+        function stoppedDrag() {
+
+            $('#medication-list').css({
+                overflow: 'scroll',
+            });
+        }

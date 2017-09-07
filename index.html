@@ -4,12 +4,15 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="assets/css/oryx.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
   <script src="assets/js/typeahead.bundle.js"></script>
   <script src="assets/js/interactions.js"></script>
   <script src="assets/js/medicationList.js"></script>
@@ -57,6 +60,9 @@
           console.log('Some other breakpoint');
         }
         }).resize();
+
+
+
     });
   </script>
 </head>
@@ -102,12 +108,11 @@
       </div>
       <div class="col-sm-6"></div>
       <div class="col-sm-6 text-right">
-
+<!--
         <img id="trashcan" class="trashcan" src=assets/img/trashcan.png ondrop="(new MedicationList()).processDrop(event)" ondragover="(new MedicationList()).allowDrop(event)">
+-->
+        <img id="trashcan" class="trashcan ui-widget-header" src=assets/img/trashcan.png onclick="(new MedicationList()).trashcanClicked(event)"  >
 
-      <!--
-        <img id="trashcan" class="trashcan" src=assets/img/trashcan.png ondrop="javascript:alert('dropped')" ondragover="(new MedicationList()).allowDrop(event)">
-      -->
       </div>
       <div style="margin-top: 5px; ">
         <ul id="medication-list" class="list-group medication-list ">
@@ -172,4 +177,5 @@
 </div>
 
 </body>
+
 </html>
