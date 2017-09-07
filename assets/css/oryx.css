@@ -1,9 +1,19 @@
 @media (min-width: 480px) {
     body{font-size: 14px;}
+
+}
+
+@media screen and (max-width: 768px) {
+
 }
 
 @media (min-width: 1024px) {
     body{font-size: 20px;}
+}
+
+@media (max-width: 1024px) {
+    body{font-size: 20px;}
+
 }
 
 /**
@@ -28,6 +38,7 @@ body{font-size: 14px;}
     content: "desktop";
   }
 	body{font-size: 20px;}
+	h3 {font-size: 1.4em ;}
 
 }
 
@@ -42,9 +53,11 @@ body{font-size: 14px;}
     line-height: 1em /* set to text height */
 }
 
+/*
 h3 {
 	font-size: 1.8em !important;
 }
+*/
 
 h4 {
 	font-size: 1em;
