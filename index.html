@@ -21,56 +21,21 @@
   <script src="assets/js/newLayout.js"></script>
   <script src="assets/js/const.js"></script>
   <script src="assets/js/ajax.js"></script>
+  <script src="assets/js/general.js"></script>
   <script type="text/javascript">
     var breakpoint = {};
     var lastRightPanel = "#side-effect-column";
     var Host = Const.localHost;
     $(document).ready(function() {
-      var interactionsInstance;
-      console.log("Ready!");
-      new Interactions();
-      initAllDrugsAutocomplete();
-      window.scrollTo(0,0);
-      ( new NewLayout()).addClickHandlersToNavbarItems();
-      /*
-      When menu is collapsed an you expand it and click on an item,
-      the menu should collapse again
-      */
-      $("nav").find("li").on("click", "a", function () {
-           $('.navbar-collapse.in').collapse('hide');
-       });
-
-      breakpoint.refreshValue = function () {
-        this.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
-      };
-      $(window).resize(function () {
-        breakpoint.refreshValue();
-        if (breakpoint.value == 'tablet') {
-          console.log('Tablet breakpoint');
-        }
-        else if (breakpoint.value == 'desktop') {
-          console.log("Desktop breakpoint');")
-          $("#medication-column").css("display", "block");
-          //TODO - if lastRightPanel is hidden, show it
-          if ($(lastRightPanel).css("display") == "none"){
-            $(lastRightPanel).css("display", "block");
-          }
-        }
-        else {
-          console.log('Some other breakpoint');
-        }
-        }).resize();
-
-
-
+      var general = new General();
+      general.initStuff();
+      general.setupBreakpoints(breakpoint);
     });
   </script>
 </head>
 <!-- TODO: try increasing padding for case where navbar is scrunched vertical -->
 <body class="body-color" style="padding-top: 10px;"
 />
-
-
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -99,7 +64,7 @@
   <div class="row">
     <!-- dummy column -->
     <div class="col-sm-3"></div>
-    <div class="col-sm-3 column-style left-panel-color" id="medication-column" style="display:block">
+    <div class="col-sm-3 column-style left-panel-color" id="medication-column" style="display:block;padding-top:10px">
       <h3>Medications</h3>
       <input class="form-control" id="search" type="text" placeholder="Enter a medication">
       <div style="margin-top: 5px ">
@@ -124,14 +89,14 @@
     </div>
 
     <div class=" column-style" >
-      <div class="column-style col-sm-3 right-panel-color" id="side-effects-column" style="display:block">
+      <div class="column-style col-sm-3 right-panel-color" id="side-effects-column" style="display:block;padding-top:10px">
         <h3>Side Effects</h3>
         <h4 id="side-effects-for-medication"></h4>
         <ul class="medication-side-effects-list">
         </ul>
       </div>
       <!-- Symptom Search starts here -->
-      <div class="column-style col-sm-3 right-panel-color" id="symptom-search-column" style="display:none">
+      <div class="column-style col-sm-3 right-panel-color" id="symptom-search-column" style="display:none;padding-top:10px">
         <h3>Symptom Search</h3>
         <input class="form-control" id="symptom-search" type="text" placeholder="Enter a symptom">
         <div style="margin-top: 5px; ">
@@ -144,7 +109,7 @@
         </div>
       </div>
       <!-- Interactions starts here -->
-    <div class="col-sm-3 column-style right-panel-color" id="interactions-column" style="display:none">
+    <div class="col-sm-3 column-style right-panel-color" id="interactions-column" style="display:none;padding-top:10px">
       <h3>Interactions
         <button id="interactions-button" type="button" class="btn btn-info btn-primary btn-lg"
           style="color:black; margin-top:5px; white-space: normal;" >
