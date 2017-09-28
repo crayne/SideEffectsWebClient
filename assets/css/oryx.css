@@ -39,6 +39,7 @@ body{font-size: 14px;}
   }
 	body{font-size: 20px;}
 	h3 {font-size: 1.4em ;}
+}
 
 }
 
@@ -52,6 +53,12 @@ body{font-size: 14px;}
     border: 1px solid #ddd;
     line-height: 1em /* set to text height */
 }
+/*
+.input-font {
+    font-size: 20px;
+}
+*/
+
 
 /*
 h3 {
@@ -138,7 +145,7 @@ h4 {
 }
 
 .medication-list-item {
-	height: 30px;
+	height: 40px;
 }
 
 .active a{
