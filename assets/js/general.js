@@ -32,6 +32,13 @@ function General(){
         if ($(lastRightPanel).css("display") == "none"){
           $(lastRightPanel).css("display", "block");
         }
+        $("#left-dummy-column").css("max-width", "9%");
+
+        $("#medication-column").css("min-width", "40%");
+        $("#side-effects-column").css("min-width", "40%");
+        $("#symptom-search-column").css("min-width", "40%");
+        $("#interactions-column").css("min-width", "40%");
+
       }
       else {
         console.log('Some other breakpoint');
