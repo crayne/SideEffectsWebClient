@@ -30,6 +30,7 @@
       var general = new General();
       general.initStuff();
       general.setupBreakpoints(breakpoint);
+      general.setFooter();
     });
   </script>
 </head>
@@ -92,7 +93,7 @@
       <div class="column-style col-sm-3 right-panel-color" id="side-effects-column" style="display:block;padding-top:10px">
         <h3>Side Effects</h3>
         <h4 id="side-effects-for-medication"></h4>
-        <ul class="medication-side-effects-list">
+        <ul class="medication-side-effects-list list-group">
         </ul>
       </div>
       <!-- Symptom Search starts here -->
@@ -140,7 +141,9 @@
 
   </div>
 </div>
-
+<div id="attributionText" class="footer navbar-fixed-bottom attributionFooter">
+  This is my stickyfooter
+</div>
 </body>
 
 </html>

@@ -43,8 +43,6 @@ body{font-size: 14px;}
 
 }
 
-
-
 .list-group-item {
     position: relative;
     display: block;
@@ -231,20 +229,6 @@ h4 {
 	margin-top: 20px;
 }
 
-.project-description-gliider {
-	margin-top: -5px;
-}
-
-.move-up {
-	margin-top: -335px;
-	margin-bottom: 335px;
-}
-
-.gliider-image {
-	margin-left: -1px;
-	margin-top: -24px;
-	padding-top: -2px;
-}
 
 .hero-unit {
 	padding-left: 30px;
@@ -253,4 +237,12 @@ h4 {
 
 .hero-unit h1 {
   font-size: 40px;
+}
+
+.attributionFooter {
+  font-size: .75em;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #f4ede1;
+  color: brown;
 }

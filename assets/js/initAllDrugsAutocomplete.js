@@ -321,7 +321,7 @@ addFrequencyField = function(origArray) {
       rowLabelText += ": " + frequency;
     }
 
-    addAListItem(rowLabelText, "medication-side-effects-list", "tab medication-side-effects-list-item");
+    addAListItem(rowLabelText, "medication-side-effects-list", "tab medication-side-effects-list-item list-group-item");
 
   };
 //TODO Side effect list is the same for every medication

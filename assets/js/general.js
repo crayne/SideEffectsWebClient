@@ -46,4 +46,9 @@ function General(){
       }
       }).resize();
   }
+
+  this.setFooter = function(){
+      $("#attributionText").text(Const.attributionText);
+
+  }
 }
