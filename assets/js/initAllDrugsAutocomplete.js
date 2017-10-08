@@ -115,7 +115,8 @@ medicationClicked = function(medication, index) {
   $("ul.medication-list").css("visibility", "visible");
   //Change list item color to yellow when it is clicked
   $('#' + id).click(function(e){
-    e.preventDefault()
+    e.preventDefault();
+    e.stopPropagation();
     $that = $(this);
     $that.parent().find('li').removeClass('active');
     $that.addClass('active');
