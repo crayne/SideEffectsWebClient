@@ -20,6 +20,7 @@ var Const = {
 	freeVersion: true,
 	numFreeVersionSearches: 20,
 	numSearchesProperty: "numFreeVersionSearches",
+  copyrightNotice: "Copyright Oryx Technologies, 2017\r",
 	attributionText: 'SideEffects uses data from the Sider2 Side Effect Resource (sideeffects.embl.de). ' +
 	'Side effects may occasionally be missing or incorrect. ' +
 	'This information is not intended as a substitute for professional medical advice, diagnosis, or treatment.  Please do not stop taking any medication without consulting your physician.',

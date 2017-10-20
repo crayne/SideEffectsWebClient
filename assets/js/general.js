@@ -48,7 +48,7 @@ function General(){
   }
 
   this.setFooter = function(){
-      $("#attributionText").text(Const.attributionText);
-
+    $("#copyrightNotice").text(Const.copyrightNotice);
+    $("#attributionText").text(Const.attributionText);
   }
 }
