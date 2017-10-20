@@ -78,6 +78,17 @@ h4 {
 	font-size: 1.0em;
 }
 
+.nav a {
+  color: #166f9e!important;
+}
+
+.nav .active a {
+  background:#c3d7e0!important }
+}
+
+
+
+
 .btn-lg {
 	font-size: .5em !important;
 	font-weight: 450;
