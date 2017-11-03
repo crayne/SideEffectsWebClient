@@ -50,5 +50,10 @@ function General(){
   this.setFooter = function(){
     $("#copyrightNotice").text(Const.copyrightNotice);
     $("#attributionText").text(Const.attributionText);
+    setTimeout(this.clearFooter, 5000);
+  }
+
+  this.clearFooter = function(){
+    $("#attributionFooter").css("visibility", "hidden");
   }
 }
