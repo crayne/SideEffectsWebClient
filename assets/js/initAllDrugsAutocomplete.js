@@ -100,17 +100,17 @@ medicationClicked = function(medication, index) {
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
 	var id = "medication-list" + i;
-  //
-	//$("ul.medication-list").append('<li id=' + id + ' draggable="true" ondragstart="(new MedicationList()).dragToDelete(event)"' + '><a href="#"><span class="tab list-group-item medication-list-item">' + medication + '</span></a></li>');
-  //
-  $("ul.medication-list").append('<li id=' + id +  '><a href="#"><span class="tab list-group-item medication-list-item ui-widget-content">' + medication + '</span></a></li>');
+  var trashId = "trash" + i;
+  ml.appendMedicationListRow(medication, id, trashId);
+
+  //$("ul.medication-list").append('<li id=' + id +  '><a href="#"><span class="tab list-group-item medication-list-item ui-widget-content">' + medication + '</span></a></li>');
   //scroll added item into view
   $("#" + id).get(0).scrollIntoView();
   //set all items to inactive
   $("ul.medication-list").find('li').removeClass('active');
   //set added item to active
   $("#" + id).addClass('active');
-  ml.saveMedication(medication);
+  ml.saveMedicationsLocally();
 
   $("ul.medication-list").css("visibility", "visible");
   //Change list item color to yellow when it is clicked
@@ -124,8 +124,16 @@ medicationClicked = function(medication, index) {
     getSideEffectsForMedication(medication);
        //alert("text is: " + $(this).text());
    });
-
   getSideEffectsForMedication(medication);
+
+  $('#' + trashId).click(function(e){
+    e.preventDefault()
+    var listItem = $(this).parent().parent();
+    listItem.remove();
+    selectedMedication = $("#medication0");
+    ml.saveMedicationsLocally();
+
+   });
 }
 
 getSideEffectsForMedication = function(medicationName){

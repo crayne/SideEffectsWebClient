@@ -8,8 +8,25 @@ function MedicationList(){
      localStorage.setItem("medications", null);
      var localStorageString = JSON.stringify(ar);
      localStorage.setItem("medications", localStorageString);
-     $("#trashcan").css("visibility", "visible");
    }
+
+   this.saveMedicationsLocally = function(medication){
+     var ar = [];
+     $("#medication-list li").each(function() {
+        var medText = $(this).children(":first").children(":first").text();
+        ar.push(medText);
+      });
+
+      //need to save the array in local storage
+      localStorage.setItem("medications", null);
+      var localStorageString = JSON.stringify(ar);
+      localStorage.setItem("medications", localStorageString);
+    }
+
+
+
+   //        var medText = this.children(":first").text();
+
    //TODO - add onclick handler to list side effects
    this.restoreMedicationList = function(){
      var localStorageString = localStorage.getItem("medications");
@@ -18,7 +35,15 @@ function MedicationList(){
      var i;
      for (i=0; i<ar.length; i++){
        var id = "medication" + i;
-       $("ul.medication-list").append('<li id=' + id  + '><a href="#"><span class="tab list-group-item medication-list-item ui-widget-content">' + ar[i] + '</span></a></li>');
+       var trashId = "trash" + i;
+       /*
+       $("ul.medication-list").append('<li class="list-group-item" ><a href="#">' +
+       '<span id=' + id + ' class="tab medication-list-item ui-widget-content">' + ar[i] + '</span>' +
+       '<span id=' + trashId + ' style="float: right"> X </span>' +
+       '</a></li>');
+       */
+       this.appendMedicationListRow(ar[i], id, trashId);
+
        //click handler shows side effects when user clicks on medication
        $('#' + id).click(function(e){
          e.preventDefault()
@@ -30,17 +55,34 @@ function MedicationList(){
          getSideEffectsForMedication(thisMed);
         });
         selectedMedication = $("#medication0");
+
+        var oldThis = this;
+        $('#' + trashId).click(function(e){
+          e.preventDefault()
+          var listItem = $(this).parent().parent();
+          listItem.remove();
+          selectedMedication = $("#medication0");
+          oldThis.saveMedicationsLocally();
+
+         });
+
      }
-     $("ul.medication-list").css("visibility", "visible");
+     if (ar.length == 0) return;
      $("#medication0" ).get(0).scrollIntoView();
+     $("ul.medication-list").css("visibility", "visible");
+
      //set all items to inactive
      $("ul.medication-list").find('li').removeClass('active');
      //set added item to active
      $("#medication0").addClass('active');
-     $("#trashcan").css("visibility", "visible");
    }
 
-
+  this.appendMedicationListRow = function(medicationText, id, trashId){
+    $("ul.medication-list").append('<li class="list-group-item" ><a href="#">' +
+    '<span id=' + id + ' class="tab medication-list-item ui-widget-content">' + medicationText + '</span>' +
+    '<span id=' + trashId + ' style="float: right"> X </span>' +
+    '</a></li>');
+  }
   this.processDrop = function(ev){
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
@@ -52,18 +94,6 @@ function MedicationList(){
 
     //Also delete it from local storage
     this.saveMedication(medName);
-
-
   }
-
-/*
-Click on trashcan to remove currently selected medication
-*/
-  this.trashcanClicked = function(ev){
-    var medName = $(selectedMedication).text();
-    $(selectedMedication).remove();
-    this.saveMedication(medName);
-  }
-
 
 }
