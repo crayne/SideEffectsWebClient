@@ -36,10 +36,16 @@ var Interactions = function(){
     $.ajax({url: urlx, success: function(result){  //make medArray from string
       $("#interactions-loader").css("visibility", "collapse");
       //alert("result is " + result);
-      if(result == null) {
+      if(result == null || result == '') {
+        /*
            alert("SideEffects has not found any interactions among your medications");
                return;
-           }
+        */
+        displayInteractions('')
+        return;
+      }
+
+
       json = JSON.parse(result);
 
      //Compensate for error in php json_encode or JSON.parse here, that makes severity an object instead of a string
@@ -105,7 +111,12 @@ var Interactions = function(){
     var displayInteractions= function(jsonArray){
       var myTextArea = $('.interactions-textarea');
       myTextArea.val('');
+      if (jsonArray == ''){
+        myTextArea.val("No interactions found");
+        return;
+      }
       var iLength = jsonArray.length;
+
       for (i=0; i<iLength; i++) {
           var jItem = jsonArray[i];
           var severityObject1 = jItem.severity;

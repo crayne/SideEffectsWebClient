@@ -36,12 +36,6 @@ function MedicationList(){
      for (i=0; i<ar.length; i++){
        var id = "medication" + i;
        var trashId = "trash" + i;
-       /*
-       $("ul.medication-list").append('<li class="list-group-item" ><a href="#">' +
-       '<span id=' + id + ' class="tab medication-list-item ui-widget-content">' + ar[i] + '</span>' +
-       '<span id=' + trashId + ' style="float: right"> X </span>' +
-       '</a></li>');
-       */
        this.appendMedicationListRow(ar[i], id, trashId);
 
        //click handler shows side effects when user clicks on medication
