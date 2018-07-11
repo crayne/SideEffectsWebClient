@@ -182,7 +182,7 @@ h4 {
 }
 
 .symptom-search-results-list{
-	max-height: 100px;
+  max-height: 270px;
 	overflow-y:scroll;
 	overflow-y:auto;
 	list-style: none;
