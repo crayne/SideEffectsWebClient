@@ -3,6 +3,7 @@ var verbalFrequencies = ['rare', 'infrequent', 'frequent'];
 var FLOAT_UNDEFINED = -1.0;
 var numMedications = 0;
 var selectedMedication;
+var currentMedicationListIndex = 0;
 
 SideEffectsClass = function(init) {
   this.verbalFrequency = init.verbalFrequency;
@@ -99,8 +100,9 @@ medicationClicked = function(medication, index) {
 	$("ul.medication-dropdown").empty();
   //This gets rid of the line that is displays when the ul is empty
   $("ul.medication-dropdown").css("visibility", "hidden");
-	var id = "medication-list" + i;
-  var trashId = "trash" + i;
+	var id = "medication-list" + currentMedicationListIndex;
+  var trashId = "trash" + currentMedicationListIndex;
+  currentMedicationListIndex++;
   ml.appendMedicationListRow(medication, id, trashId);
 
   //$("ul.medication-list").append('<li id=' + id +  '><a href="#"><span class="tab list-group-item medication-list-item ui-widget-content">' + medication + '</span></a></li>');
@@ -132,7 +134,6 @@ medicationClicked = function(medication, index) {
     listItem.remove();
     selectedMedication = $("#medication0");
     ml.saveMedicationsLocally();
-
    });
 }
 

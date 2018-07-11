@@ -34,6 +34,7 @@ function NewLayout(){
       $("#interactions-column").css("display", "none");
       $("#side-effects-column").css("display", "none");
       $("#symptom-search-column").css("display", "block");
+      $("#symptom-search").css("visibility", "visible");
       if (breakpoint.value != 'desktop') {
         $("#medication-column").css("display", "none");
       }

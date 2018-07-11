@@ -1,5 +1,4 @@
 function MedicationList(){
-
   this.saveMedication = function(medication){
     var ar = [];
     $("#medication-list li").each(function() { ar.push($(this).text()) });
@@ -76,18 +75,6 @@ function MedicationList(){
     '<span id=' + id + ' class="tab medication-list-item ui-widget-content">' + medicationText + '</span>' +
     '<span id=' + trashId + ' style="float: right"> X </span>' +
     '</a></li>');
-  }
-  this.processDrop = function(ev){
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    //ev.target.appendChild(document.getElementById(data));
-    var medName = $("#" + data).text();
-    alert("medication name of item dropped is: " + medName);
-    //Now delete the list item with this id
-    $("#" + data).remove();
-
-    //Also delete it from local storage
-    this.saveMedication(medName);
   }
 
 }
